@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 100
-  bullet: {fileID: 1420856427588789588, guid: ea65aeb9884f8411191833911e00a4db, type: 3}
+  bullet: {fileID: 7834546812266462514, guid: ea65aeb9884f8411191833911e00a4db, type: 3}
   shootPoint: {fileID: 1166241008}
 --- !u!61 &1175819640
 BoxCollider2D:
@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 1667437310}
   - component: {fileID: 1667437309}
   - component: {fileID: 1667437311}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2474,7 +2474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1859453718}
   - component: {fileID: 1859453717}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
