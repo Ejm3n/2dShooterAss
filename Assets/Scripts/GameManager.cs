@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public bool GameFinished;
     [SerializeField] private GameObject losePanel;
 
     private void Awake()
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
             Instance = this;
         losePanel.SetActive(false);
+        GameFinished = false;
     }
 
     public void RestartLevel()
@@ -23,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        GameFinished = true;
         losePanel.SetActive(true);
     }
 }

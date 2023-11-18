@@ -15,13 +15,11 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxis("Vertical"));
-
-        if (movement.magnitude > 1)
-            movement = movement.normalized;
-
-        rb.AddForce(movement * moveSpeed);
-        RotateTowardsMousePointer();
+        if(!GameManager.Instance.GameFinished)
+        {
+            Move();
+            RotateTowardsMousePointer();
+        }      
     }
 
     /// <summary>
@@ -34,6 +32,15 @@ public class PlayerMove : MonoBehaviour
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f; // -90 degree offset if your sprite is upright
         rb.rotation = angle;
+    }
+    private void Move()
+    {
+        movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxis("Vertical"));
+
+        if (movement.magnitude > 1)
+            movement = movement.normalized;
+
+        rb.AddForce(movement * moveSpeed);
     }
 }
 
