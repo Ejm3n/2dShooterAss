@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Astroid : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Rigidbody2D rb;
+
+    [SerializeField]
+    float speed;
+
+    [SerializeField]
+    float destroyTimer = 5f;
+
     void Start()
     {
-        
+        rb = gameObject.GetComponent<Rigidbody2D>();
+        rb.AddRelativeForce(new Vector2(0, speed));
+        Destroy(gameObject, destroyTimer);
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        transform.parent = null;
     }
 }
