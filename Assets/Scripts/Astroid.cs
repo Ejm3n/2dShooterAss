@@ -2,24 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Astroid : MonoBehaviour
+public class Astroid : Bullet
 {
-    Rigidbody2D rb;
-
-    [SerializeField]
-    float speed;
-
-    [SerializeField]
-    float destroyTimer = 5f;
-
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        rb.AddRelativeForce(new Vector2(0, speed));
-        Destroy(gameObject, destroyTimer);
-    }
-    private void OnEnable()
-    {
-        transform.parent = null;
+        if(collision.transform.CompareTag("Player"))
+        {
+            GameManager.Instance.GameOver();
+        }
     }
 }
