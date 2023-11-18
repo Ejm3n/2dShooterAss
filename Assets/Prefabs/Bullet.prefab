@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4825593712040962468}
   - component: {fileID: 7834546812266462514}
   - component: {fileID: 8420164814585723455}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1420856427588789588}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9075da18c060ba64f9d18f333f0fc348, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

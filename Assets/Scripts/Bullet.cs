@@ -17,4 +17,8 @@ public class Bullet : MonoBehaviour
         rb.AddRelativeForce(new Vector2(0, speed));
         Destroy(gameObject,5f);
     }
+    private void OnEnable()
+    {
+        transform.parent = null;
+    }
 }

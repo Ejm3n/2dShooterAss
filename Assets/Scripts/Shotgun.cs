@@ -1,16 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Shotgun : MonoBehaviour
 {
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
 
     [SerializeField]
-    float force;
+    private float force;
 
-    public GameObject bullet, shootPoint;
-    
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject shootPoint;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +20,7 @@ public class Shotgun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             shoot();
             rb.AddRelativeForce(new Vector2(0, -force));
