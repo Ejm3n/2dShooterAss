@@ -9,10 +9,14 @@ public class AstroidSpawner : MonoBehaviour
 
     [SerializeField] private Vector2 minSpawn, maxSpawn;
 
-    [SerializeField]private GameObject astroid;
-    [SerializeField] private Transform spawnPoint;
+    [SerializeField]private Astroid astroid;
+    private ObjectPool<Astroid> pool;
     // Update is called once per frame
-
+    private void Awake()
+    {
+        pool = new ObjectPool<Astroid>(astroid, 10, transform);
+        pool.AutoExpand = true;
+    }
     private void Update()
     {
         CheckTimer();
@@ -24,7 +28,11 @@ public class AstroidSpawner : MonoBehaviour
 
         if (timer <= 0f)
         {
-            Instantiate(astroid, RandomSpawn(), transform.rotation, null);
+            Astroid newAstroid = pool.GetFreeElement();
+            newAstroid.gameObject.SetActive(true);
+            newAstroid.transform.position = RandomSpawn();
+            newAstroid.transform.rotation = transform.rotation;
+            
             float addTime = Random.Range(stTimerMin, stTimerMax);
             timer = addTime;
         }

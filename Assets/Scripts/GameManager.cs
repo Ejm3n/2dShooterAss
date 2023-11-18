@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
         losePanel.SetActive(false);
         GameFinished = false;
+        Time.timeScale = 1;
     }
 
     public void RestartLevel()
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         GameFinished = true;
+        Time.timeScale = 0;
         losePanel.SetActive(true);
     }
 }
