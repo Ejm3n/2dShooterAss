@@ -29,7 +29,14 @@ public class Bullet : MonoBehaviour
         transform.parent = null;
         StartCoroutine(TimeToDisable());
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.transform.CompareTag("Enemy"))
+        {
+            gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
+        }
+    }
     private IEnumerator TimeToDisable()
     {       
         yield return new WaitForSeconds(destroyTimer);
