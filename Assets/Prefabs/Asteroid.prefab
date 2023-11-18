@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   destroyTimer: 5
+  explosionPrefab: {fileID: 2995686830919331306, guid: f17d484e037a2b7438688c33164c4e33, type: 3}
 --- !u!1 &2291489466801323930
 GameObject:
   m_ObjectHideFlags: 0
