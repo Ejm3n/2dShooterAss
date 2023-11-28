@@ -6,7 +6,9 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     private Rigidbody2D rb;
     private Vector2 movement;
-
+    [SerializeField] private float dash;
+    [SerializeField] private GameObject particle;
+    [SerializeField] private Transform particleEmit;
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -20,6 +22,11 @@ public class PlayerMove : MonoBehaviour
             Move();
             RotateTowardsMousePointer();
         }      
+    }
+
+    private void Update()
+    {
+        Dash();
     }
 
     /// <summary>
@@ -41,6 +48,15 @@ public class PlayerMove : MonoBehaviour
             movement = movement.normalized;
 
         rb.AddForce(movement * moveSpeed);
+    }
+    private void Dash()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            rb.AddRelativeForce(new Vector2(0, dash));
+            GameObject part = Instantiate(particle, particleEmit);
+            Destroy(part, 1f);
+        }
     }
 }
 

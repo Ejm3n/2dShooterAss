@@ -26,7 +26,7 @@ public class Shotgun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0)&& !GameManager.Instance.GameFinished)
+        if (Input.GetButtonDown("Fire1")&& !GameManager.Instance.GameFinished)
         {
             shoot();
             rb.AddRelativeForce(new Vector2(0, -force));
