@@ -22,7 +22,7 @@ public class GrappleHook : MonoBehaviour
         if (Input.GetButtonDown("Fire2") && !grappled)
         {
             StartGrapple();
-        }
+        } 
         if (retracting)
         {
             Vector2 grapplePos = Vector2.Lerp(transform.position, target, grappleSpeed * Time.deltaTime);
