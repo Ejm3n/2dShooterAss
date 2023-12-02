@@ -9,7 +9,7 @@ public class Astroid : Bullet
     {
         if (collision.transform.CompareTag("Player"))
         {
-            GameManager.Instance.GameOver();
+            GameManager.Instance.TakeDamage(2);
             gameObject.SetActive(false);
         }
     }
