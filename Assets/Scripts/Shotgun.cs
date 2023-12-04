@@ -1,44 +1,18 @@
 using UnityEngine;
 
-public class Shotgun : MonoBehaviour
+public class Shotgun : Gun
 {
-    private Rigidbody2D rb;
-
     [SerializeField]
     private float force;
-
-    [SerializeField] private Bullet bullet;
-    [SerializeField] private GameObject shootPoint;
-    private ObjectPool<Bullet> pool;
-
-    private void Awake()
+    protected override void Update()
     {
-        pool = new ObjectPool<Bullet>(bullet, 10, shootPoint.transform);
-        pool.AutoExpand = true;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        base.Update();
         if (Input.GetButtonDown("Fire1")&& !GameManager.Instance.GameFinished)
         {
-            shoot();
-            rb.AddRelativeForce(new Vector2(0, -force));
+           if( Shoot())
+                rb.AddRelativeForce(new Vector2(0, -force));
         }
     }
 
-    void shoot()
-    {
-        Bullet newBullet = pool.GetFreeElement();
-        newBullet.gameObject.SetActive(true);
-        newBullet.transform.position = shootPoint.transform.position;
-        newBullet.transform.rotation = transform.rotation;
-        //Instantiate(bullet, shootPoint.transform);
-    }
+  
 }

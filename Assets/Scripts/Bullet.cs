@@ -12,6 +12,10 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     protected float destroyTimer = 5f;
 
+    [SerializeField]
+    protected int damage = 1;
+
+
     protected void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -29,11 +33,22 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.CompareTag("Enemy"))
+        if(collision.transform.CompareTag("Enemy") || collision.transform.CompareTag("Player"))
         {
             gameObject.SetActive(false);
-            collision.gameObject.SetActive(false);
+            try
+            {
+                collision.gameObject.GetComponent<Health>().TakeDamage(damage);
+            }
+               
+            catch
+            {
+                Debug.Log("NO HEALTH COMP ON " + collision.name);
+                collision.gameObject.SetActive(false);
+            }
         }
+        if(collision.transform.CompareTag("Asteroid"))
+            gameObject.SetActive(false);
     }
 
     protected IEnumerator TimeToDisable()

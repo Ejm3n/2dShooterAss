@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4616908770866106336}
   - component: {fileID: 2746288021234516365}
   - component: {fileID: 8083531423688088554}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Asteroid
-  m_TagString: Enemy
+  m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   destroyTimer: 5
+  damage: 1
   explosionPrefab: {fileID: 2995686830919331306, guid: f17d484e037a2b7438688c33164c4e33, type: 3}
 --- !u!1 &2291489466801323930
 GameObject:
@@ -122,7 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8707832493084808958}
   - component: {fileID: 5069479220163350019}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: AsteroidSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

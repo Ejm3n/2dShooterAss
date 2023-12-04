@@ -11,10 +11,10 @@ public class GameManager : MonoBehaviour
     public bool GameFinished;
     [SerializeField] private GameObject losePanel;
 
-    [SerializeField] private int maxHealth;
-    private int health;
-    [SerializeField]
-    private TMP_Text healthText;
+
+    [SerializeField]private TMP_Text healthText;
+    
+    private PlayerHealth playerHealth;
 
     private void Awake()
     {
@@ -24,21 +24,21 @@ public class GameManager : MonoBehaviour
         GameFinished = false;
         Time.timeScale = 1;
 
-        health = maxHealth;
-
-        healthText.text = "Health: " + health;
+        
+        playerHealth = FindObjectOfType<PlayerHealth>();
+       
     }
-    #region playerHealth
-    public void TakeDamage(int damage)
+    private void Start()
     {
-        health -= damage;
-        healthText.text = "Health: " + health;
-        if(health <= 0)
-        {
-            GameOver();
-        }
+        UpdateHealthUI();
     }
-        #endregion
+    public void UpdateHealthUI()
+    {
+
+        healthText.text = "Health: " + playerHealth.CurrentHealth;
+
+    }
+     
 
         #region gameOver
         public void RestartLevel()

@@ -2,21 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AstroidSpawner : MonoBehaviour
+public class ShootingEnemySpawner : MonoBehaviour
 {
     [SerializeField] private float stTimerMin, stTimerMax;
     private float timer;
 
     [SerializeField] private Vector2 minSpawn, maxSpawn;
 
-    [SerializeField]private Astroid astroid;
-    private ObjectPool<Astroid> pool;
+    [SerializeField] private EnemyBehaivour enemyBehaviour;
+    private ObjectPool<EnemyBehaivour> pool;
     // Update is called once per frame
     private void Awake()
     {
-        pool = new ObjectPool<Astroid>(astroid, 10, transform);
+        pool = new ObjectPool<EnemyBehaivour>(enemyBehaviour, 10, transform);
         pool.AutoExpand = true;
-        timer = Random.Range(stTimerMin, stTimerMax);
     }
     private void Update()
     {
@@ -29,11 +28,11 @@ public class AstroidSpawner : MonoBehaviour
 
         if (timer <= 0f)
         {
-            Astroid newAstroid = pool.GetFreeElement();
+            EnemyBehaivour newAstroid = pool.GetFreeElement();
             newAstroid.gameObject.SetActive(true);
             newAstroid.transform.position = RandomSpawn();
             newAstroid.transform.rotation = transform.rotation;
-            
+
             float addTime = Random.Range(stTimerMin, stTimerMax);
             timer = addTime;
         }

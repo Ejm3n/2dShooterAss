@@ -9,7 +9,7 @@ public class Astroid : Bullet
     {
         if (collision.transform.CompareTag("Player"))
         {
-            GameManager.Instance.TakeDamage(2);
+            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
             gameObject.SetActive(false);
         }
     }
@@ -19,6 +19,7 @@ public class Astroid : Bullet
         {
             GameObject exp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(exp,3f);
+            gameObject.SetActive(false);
         }
     }
 }
