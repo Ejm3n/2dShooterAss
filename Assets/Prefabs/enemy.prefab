@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4095100495763026707}
   - component: {fileID: 2909638187807923251}
   - component: {fileID: 881530396334922246}
-  - component: {fileID: 3775477973759074765}
   - component: {fileID: 7586330653277829133}
+  - component: {fileID: 264345746656781487}
   m_Layer: 6
   m_Name: enemy
   m_TagString: Enemy
@@ -118,20 +118,6 @@ MonoBehaviour:
   bullet: {fileID: 1102519322443738079, guid: b85c58e9d71504981968d28b8a62f3e1, type: 3}
   shootPoint: {fileID: 7257914272304441600}
   delayBtwShots: 1
---- !u!114 &3775477973759074765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2717771829045231086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75e53e22d05bc064c9a4531575477618, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentHealth: 0
-  maxHealth: 1
 --- !u!50 &7586330653277829133
 Rigidbody2D:
   serializedVersion: 4
@@ -159,6 +145,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &264345746656781487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2717771829045231086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 431573bb4cff743789d9b2ca887f0210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentHealth: 0
+  maxHealth: 1
+  explosionPrefab: {fileID: 2995686830919331306, guid: f17d484e037a2b7438688c33164c4e33, type: 3}
 --- !u!1 &7257914272304441600
 GameObject:
   m_ObjectHideFlags: 0

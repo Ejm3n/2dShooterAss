@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -12,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject losePanel;
 
 
-    [SerializeField]private TMP_Text healthText;
+    [SerializeField] private Image healthImage;
     
     private PlayerHealth playerHealth;
 
@@ -30,12 +31,11 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        UpdateHealthUI();
+        UpdateHealthUI(1);
     }
-    public void UpdateHealthUI()
+    public void UpdateHealthUI(float fill)
     {
-
-        healthText.text = "Health: " + playerHealth.CurrentHealth;
+        healthImage.fillAmount = fill;
 
     }
      

@@ -10,16 +10,23 @@ public class Astroid : Bullet
         if (collision.transform.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
-            gameObject.SetActive(false);
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.transform.CompareTag("Bullet"))
-        {
             GameObject exp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(exp,3f);
+            Destroy(exp, 3f);
             gameObject.SetActive(false);
+            
+        }
+        if (collision.transform.CompareTag("Enemy"))
+        {
+           try
+            {
+               collision.gameObject.GetComponent<Health>().Die();
+            }
+            catch
+            {
+                Debug.Log("No enemy health");
+            }
+
         }
     }
+    
 }
