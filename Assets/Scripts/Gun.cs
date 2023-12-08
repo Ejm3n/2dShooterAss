@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+
     protected Rigidbody2D rb;
 
 
-
+    [SerializeField] protected KilledBy attacker;
     [SerializeField] protected Bullet bullet;
     [SerializeField] protected GameObject shootPoint;
     [SerializeField] protected float delayBtwShots = 1f;
@@ -37,6 +38,7 @@ public class Gun : MonoBehaviour
             newBullet.gameObject.SetActive(true);
             newBullet.transform.position = shootPoint.transform.position;
             newBullet.transform.rotation = shootPoint. transform.rotation;
+            newBullet.Attacker = attacker;
             timeToReload = delayBtwShots;
             return true;
         }

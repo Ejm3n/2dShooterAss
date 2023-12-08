@@ -53,7 +53,7 @@ public class EnemyBehaivour : MonoBehaviour
             if (hitCollider.gameObject.CompareTag("Player"))
             {
                 isPlayerDetected = true;
-                // Обновите логику для преследования игрока
+                // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 LookToPlayerAndShoot(hitCollider.transform);
                 break;
             }
@@ -70,7 +70,7 @@ public class EnemyBehaivour : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         if (Quaternion.Angle(transform.rotation, targetRotation) < thresholdAngle)
         {
-            Debug.Log("Объект полностью повернулся к цели");
+            //Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ");
             Shoot();
         }
     }
@@ -89,7 +89,7 @@ public class EnemyBehaivour : MonoBehaviour
         while (randomY + transform.position.y < minPositionBounders.y || randomY + transform.position.y > maxPositionBounders.y)
             randomY = Random.Range(-patrolRadius, patrolRadius);
         targetPosition = new Vector2(randomX, randomY) + (Vector2)transform.position;
-        Debug.Log("TARGET POS" + targetPosition);
+        //Debug.Log("TARGET POS" + targetPosition);
     }
     void SetRandomRotation()
     {

@@ -12,11 +12,11 @@ public class GameManager : MonoBehaviour
     public bool GameFinished;
     [SerializeField] private GameObject losePanel;
 
-
+    [SerializeField] private TMP_Text scoreText;
     [SerializeField] private Image healthImage;
     
     private PlayerHealth playerHealth;
-
+    private int score=0;
     private void Awake()
     {
         if (Instance == null)
@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour
         GameFinished = false;
         Time.timeScale = 1;
 
-        
+        score = 0;
+        AddScore(0);
         playerHealth = FindObjectOfType<PlayerHealth>();
        
     }
@@ -52,5 +53,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         losePanel.SetActive(true);
     }
+    public void AddScore(int scoreToAdd)
+    {
+        score += scoreToAdd;
+        scoreText.text = "Score: " + score.ToString();
+    }
+
     #endregion
 }

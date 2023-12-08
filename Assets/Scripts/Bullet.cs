@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public KilledBy Attacker;
     protected Rigidbody2D rb;
     
     [SerializeField]
@@ -38,7 +39,7 @@ public class Bullet : MonoBehaviour
             gameObject.SetActive(false);
             try
             {
-                collision.gameObject.GetComponent<Health>().TakeDamage(damage);
+                collision.gameObject.GetComponent<Health>().TakeDamage(damage,Attacker);
             }
                
             catch

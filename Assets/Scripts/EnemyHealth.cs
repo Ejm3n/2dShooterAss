@@ -5,10 +5,16 @@ using UnityEngine;
 public class EnemyHealth : Health
 {
     [SerializeField] private GameObject explosionPrefab;
-    public override void Die()
+    [SerializeField] private int scoreForKillingEnemy;
+    public override void Die(KilledBy killedBy)
     {
         GameObject exp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(exp, 3f);
-        base.Die();
+        Debug.Log("sadhjfghdsagf" + killedBy.ToString());
+        if(killedBy == KilledBy.Player)
+        {
+            GameManager.Instance.AddScore(scoreForKillingEnemy);
+        }
+        base.Die(killedBy);
     }
 }

@@ -19,7 +19,7 @@ public class Astroid : Bullet
         {
            try
             {
-               collision.gameObject.GetComponent<Health>().Die();
+                collision.gameObject.GetComponent<Health>().Die(KilledBy.Asteroid);
             }
             catch
             {
