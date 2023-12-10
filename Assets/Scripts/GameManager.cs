@@ -10,11 +10,16 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public bool GameFinished;
-    [SerializeField] private GameObject losePanel;
+    
 
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private Image healthImage;
-    
+
+    [Header("ENDGAME STUFF")]
+    [SerializeField] private GameObject losePanel;
+    [SerializeField] private TMP_Text scoreEndText;
+    [SerializeField] protected TMP_Text bestScoreText;
+
     private PlayerHealth playerHealth;
     private int score=0;
     private void Awake()
@@ -50,8 +55,13 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         GameFinished = true;
+        scoreEndText.text = "Your score: " + score.ToString();
+        if (score > PlayerPrefs.GetInt("Best score"))
+            PlayerPrefs.SetInt("Best score", score);
+        bestScoreText.text = "Best score: " + PlayerPrefs.GetInt("Best score").ToString();
         Time.timeScale = 0;
         losePanel.SetActive(true);
+
     }
     public void AddScore(int scoreToAdd)
     {
