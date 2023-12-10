@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4825593712040962468}
   - component: {fileID: 7834546812266462514}
   - component: {fileID: 8420164814585723455}
+  - component: {fileID: 5689769088133739413}
   m_Layer: 7
   m_Name: Bullet
   m_TagString: Bullet
@@ -134,8 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4742fe652c14a01b22529687518739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Attacker: 0
   speed: 5
   destroyTimer: 5
+  damage: 1
 --- !u!50 &8420164814585723455
 Rigidbody2D:
   serializedVersion: 4
@@ -163,3 +166,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &5689769088133739413
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420856427588789588}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8d2daedc68c1ab8429acef0fbc81294a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
