@@ -5,7 +5,7 @@ public class Gun : MonoBehaviour
 
     protected Rigidbody2D rb;
 
-
+    [SerializeField] private AudioSource shotSound;
     [SerializeField] protected KilledBy attacker;
     [SerializeField] protected Bullet bullet;
     [SerializeField] protected GameObject shootPoint;
@@ -34,6 +34,7 @@ public class Gun : MonoBehaviour
     {
         if (timeToReload <= 0)
         {
+            shotSound.Play();
             Bullet newBullet = pool.GetFreeElement();
             newBullet.gameObject.SetActive(true);
             newBullet.transform.position = shootPoint.transform.position;
