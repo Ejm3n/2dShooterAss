@@ -102,8 +102,8 @@ MonoBehaviour:
   rotationSpeed: 5
   thresholdAngle: 1
   enemyGun: {fileID: 881530396334922246}
-  minPositionBounders: {x: -6.1, y: -4.3}
-  maxPositionBounders: {x: 6.1, y: 4.3}
+  minPositionBounders: {x: -49, y: -26}
+  maxPositionBounders: {x: 49, y: 26}
 --- !u!114 &881530396334922246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +163,6 @@ MonoBehaviour:
   CurrentHealth: 0
   KilledBy: 0
   maxHealth: 1
-  explodeSound: {fileID: 0}
   explosionPrefab: {fileID: 2995686830919331306, guid: f17d484e037a2b7438688c33164c4e33, type: 3}
   scoreForKillingEnemy: 10
 --- !u!82 &6453932072310421102
