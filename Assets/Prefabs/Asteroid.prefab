@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attacker: 2
-  speed: 2
+  speed: 3
   destroyTimer: 15
   damage: 1
   explosionPrefab: {fileID: 2995686830919331306, guid: f17d484e037a2b7438688c33164c4e33, type: 3}

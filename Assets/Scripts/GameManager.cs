@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public bool GameFinished;
-    
 
+    [SerializeField] private float distanceToPlayerToActivateSounds = 7f;
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private Image healthImage;
 
@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] protected TMP_Text bestScoreText;
 
     private PlayerHealth playerHealth;
+    private Transform playerTransform;
     private int score=0;
     private void Awake()
     {
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour
         score = 0;
         AddScore(0);
         playerHealth = FindObjectOfType<PlayerHealth>();
-       
+        playerTransform = playerHealth.transform;
     }
     private void Start()
     {
@@ -62,6 +63,14 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         losePanel.SetActive(true);
 
+    }
+    public float GetMaxDistanceToPlayer()
+    {
+        return distanceToPlayerToActivateSounds;
+    }
+    public Vector2 GetPlayerPos()
+    {
+        return playerTransform.position;
     }
     public void AddScore(int scoreToAdd)
     {

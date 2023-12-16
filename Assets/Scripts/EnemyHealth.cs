@@ -9,6 +9,16 @@ public class EnemyHealth : Health
     public override void Die(KilledBy killedBy)
     {
         GameObject exp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        float dist = Vector2.Distance(transform.position, GameManager.Instance.GetPlayerPos());
+        if (dist<GameManager.Instance.GetMaxDistanceToPlayer())
+        {
+            exp.GetComponent<AudioSource>().volume = 1f - (dist / GameManager.Instance.GetMaxDistanceToPlayer());
+        }
+        else
+        {
+            exp.GetComponent<AudioSource>().volume = 0;
+        }
+       
         Destroy(exp, 3f);
         Debug.Log("sadhjfghdsagf" + killedBy.ToString());
         if(killedBy == KilledBy.Player)
