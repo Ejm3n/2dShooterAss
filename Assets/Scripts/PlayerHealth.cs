@@ -9,7 +9,7 @@ public class PlayerHealth : Health
     {
         hitSound.Play();
         base.TakeDamage(damage);
-        GameManager.Instance.UpdateHealthUI((float)CurrentHealth/(float)maxHealth);
+        GameUIManager.Instance.UpdateHealthUI((float)CurrentHealth/(float)maxHealth);
     }
     public override void Die(KilledBy killedBy = KilledBy.Unknown)
     {

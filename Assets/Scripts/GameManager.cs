@@ -12,13 +12,7 @@ public class GameManager : MonoBehaviour
     public bool GameFinished;
 
     [SerializeField] private float distanceToPlayerToActivateSounds = 7f;
-    [SerializeField] private TMP_Text scoreText;
-    [SerializeField] private Image healthImage;
-
-    [Header("ENDGAME STUFF")]
-    [SerializeField] private GameObject losePanel;
-    [SerializeField] private TMP_Text scoreEndText;
-    [SerializeField] protected TMP_Text bestScoreText;
+    
 
     private PlayerHealth playerHealth;
     private Transform playerTransform;
@@ -27,9 +21,9 @@ public class GameManager : MonoBehaviour
     {
         if (Instance == null)
             Instance = this;
-        losePanel.SetActive(false);
+        //losePanel.SetActive(false);
         GameFinished = false;
-        Time.timeScale = 1;
+        GameUIManager.Instance.SetTimeScale(1);
 
         score = 0;
         AddScore(0);
@@ -38,31 +32,26 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        UpdateHealthUI(1);
+       GameUIManager.Instance.UpdateHealthUI(1);
     }
-    public void UpdateHealthUI(float fill)
-    {
-        healthImage.fillAmount = fill;
-
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameUIManager.Instance.SetTimeScale(0f);
+            GameUIManager.Instance.OpenPanel();
+        }
     }
-     
-
-        #region gameOver
-        public void RestartLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
+        #region gameOver    
     public void GameOver()
     {
         GameFinished = true;
-        scoreEndText.text = "Your score: " + score.ToString();
-        if (score > PlayerPrefs.GetInt("Best score"))
-            PlayerPrefs.SetInt("Best score", score);
-        bestScoreText.text = "Best score: " + PlayerPrefs.GetInt("Best score").ToString();
+       // scoreEndText.text = "Your score: " + score.ToString();
+        DataSaver.Instance.SetCurrentScore(score);
+        DataSaver.Instance.SetBestScore(score);
+       // bestScoreText.text = "Best score: " + DataSaver.Instance.GetBestScore().ToString();
         Time.timeScale = 0;
-        losePanel.SetActive(true);
-
+        //losePanel.SetActive(true);
+        GameUIManager.Instance.ChangeScene(2);
     }
     public float GetMaxDistanceToPlayer()
     {
@@ -75,7 +64,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int scoreToAdd)
     {
         score += scoreToAdd;
-        scoreText.text = "Score: " + score.ToString();
+        GameUIManager.Instance.UpdateScore(score);
     }
 
     #endregion
