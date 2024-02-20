@@ -30,11 +30,11 @@ public class Gun : MonoBehaviour
         if (timeToReload >= 0)
             timeToReload -= Time.deltaTime;
     }
-    public bool Shoot()
+    public bool Shoot(string sound)
     {
         if (timeToReload <= 0)
         {
-            SoundManager.Instance.PlaySound(audioKey);
+            SoundManager.Instance.PlaySound(sound);
             Bullet newBullet = pool.GetFreeElement();
             newBullet.gameObject.SetActive(true);
             newBullet.transform.position = shootPoint.transform.position;

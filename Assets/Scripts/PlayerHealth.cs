@@ -7,7 +7,7 @@ public class PlayerHealth : Health
     [SerializeField] private AudioSource hitSound;
     public override void TakeDamage(int damage = 1, KilledBy attackedBy = KilledBy.Unknown)
     {
-        hitSound.Play();
+        SoundManager.Instance.PlaySound("Hit");
         base.TakeDamage(damage);
         GameUIManager.Instance.UpdateHealthUI((float)CurrentHealth/(float)maxHealth);
     }

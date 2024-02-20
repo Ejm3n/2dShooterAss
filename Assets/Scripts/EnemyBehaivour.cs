@@ -77,7 +77,7 @@ public class EnemyBehaivour : MonoBehaviour
 
     void Shoot()
     {
-        enemyGun.Shoot();
+        enemyGun.Shoot("Laser_Enemy");
     }
     void SetRandomTarget()
     {

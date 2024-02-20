@@ -10,7 +10,7 @@ public class Shotgun : Gun
         base.Update();
         if (Input.GetButtonDown("Fire1")&& !GameManager.Instance.GameFinished)
         {
-           if( Shoot())
+           if( Shoot("Laser_Player"))
                 rb.AddRelativeForce(new Vector2(0, -force));
         }
     }
