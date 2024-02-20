@@ -4,6 +4,7 @@ public class Shotgun : Gun
 {
     [SerializeField]
     private float force;
+    
     protected override void Update()
     {
         base.Update();
