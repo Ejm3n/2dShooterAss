@@ -11,6 +11,11 @@ public class PlayerHealth : Health
         base.TakeDamage(damage);
         GameUIManager.Instance.UpdateHealthUI((float)CurrentHealth/(float)maxHealth);
     }
+    public override void AddHealth(int healthToAdd)
+    {
+        base.AddHealth(healthToAdd);
+        GameUIManager.Instance.UpdateHealthUI((float)CurrentHealth/(float)maxHealth);
+    }
     public override void Die(KilledBy killedBy = KilledBy.Unknown)
     {
         GameManager.Instance.GameOver();
