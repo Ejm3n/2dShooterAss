@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static DataManager Instance;
+    private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    public void SetScore(string score)
     {
-        
+        PlayerPrefs.SetString("Score", score);
+    }
+    public void GetScore()
+    {
+        PlayerPrefs.GetString("Score");
     }
 }

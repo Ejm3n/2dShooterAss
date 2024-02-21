@@ -16,5 +16,6 @@ public class GameUIManager : UIManager
     public override void UpdateScore(int score)
     {
         scoreText.text = "Score: " +score.ToString();
+        DataManager.Instance.SetScore(score.ToString());
     }
 }
