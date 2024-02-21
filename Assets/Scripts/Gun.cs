@@ -5,17 +5,18 @@ public class Gun : MonoBehaviour
 
     protected Rigidbody2D rb;
 
-    private string audioKey;
+    [SerializeField] protected string audioKey;
     [SerializeField] protected KilledBy attacker;
     [SerializeField] protected Bullet bullet;
     [SerializeField] protected GameObject shootPoint;
     [SerializeField] protected float delayBtwShots = 1f;
+        [SerializeField] protected int bulletsToSpawn = 10;
     private float timeToReload;
     protected ObjectPool<Bullet> pool;
 
     protected void Awake()
     {
-        pool = new ObjectPool<Bullet>(bullet, 10, shootPoint.transform);
+        pool = new ObjectPool<Bullet>(bullet, bulletsToSpawn, shootPoint.transform);
         pool.AutoExpand = true;
         timeToReload = delayBtwShots;
     }

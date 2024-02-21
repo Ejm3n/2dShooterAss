@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5549e71338c944540822afb51bf71c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotSound: {fileID: 6453932072310421102}
+  audioKey: Laser_Enemy
   attacker: 3
   bullet: {fileID: 1102519322443738079, guid: b85c58e9d71504981968d28b8a62f3e1, type: 3}
   shootPoint: {fileID: 7257914272304441600}
@@ -163,6 +163,7 @@ MonoBehaviour:
   CurrentHealth: 0
   KilledBy: 0
   maxHealth: 1
+  healthPickUpPrefab: {fileID: 1377209086836615133, guid: 1e27137e62feceffd9c700159fc5bc9d, type: 3}
   explosionPrefab: {fileID: 2995686830919331306, guid: f17d484e037a2b7438688c33164c4e33, type: 3}
   scoreForKillingEnemy: 10
 --- !u!82 &6453932072310421102

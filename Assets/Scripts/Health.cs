@@ -21,7 +21,11 @@ public class Health : MonoBehaviour
         if (CheckIfDead())
             Die(attackedBy);
     }
-
+    public virtual void AddHealth(int healthToAdd)
+    {
+        if(CurrentHealth<maxHealth)
+            CurrentHealth+=healthToAdd;
+    }
     public bool CheckIfDead() { return CurrentHealth <= 0; }
 
     public virtual void Die(KilledBy killedBy)

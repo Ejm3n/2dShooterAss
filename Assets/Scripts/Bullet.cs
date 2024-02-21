@@ -21,12 +21,12 @@ public class Bullet : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
-    protected void Update()
+    protected virtual void Update()
     {
         transform.Translate(Vector2.up*speed*Time.deltaTime);
     }
 
-    protected void OnEnable()
+    protected virtual void OnEnable()
     {
         transform.parent = null;
         StartCoroutine(TimeToDisable());
@@ -52,7 +52,7 @@ public class Bullet : MonoBehaviour
             gameObject.SetActive(false);
     }
 
-    protected IEnumerator TimeToDisable()
+    protected virtual IEnumerator TimeToDisable()
     {       
         yield return new WaitForSeconds(destroyTimer);
         gameObject.SetActive(false);

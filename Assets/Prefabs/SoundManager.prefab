@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3463314528927240542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6955354054982243335}
+  - component: {fileID: 5168656151019575914}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6955354054982243335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3463314528927240542}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.2287071, y: -1.4690899, z: -6.135931}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5168656151019575914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3463314528927240542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08c4fdaf50d344d2b578053ab78243c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioTracks:
+  - Type: 0
+    Clip: {fileID: 8300000, guid: 3250fd48a77fe28478c2da97cddbc130, type: 3}
+    Name: Explosion
+  - Type: 0
+    Clip: {fileID: 8300000, guid: ad6ab1a4ca3056c47985f0db3c09b140, type: 3}
+    Name: Hit
+  - Type: 0
+    Clip: {fileID: 8300000, guid: 494fe58403f7bb9468d3f210c0b87006, type: 3}
+    Name: Laser_Player
+  - Type: 0
+    Clip: {fileID: 8300000, guid: f375e75611fe31c4ca32370d7d36c449, type: 3}
+    Name: Laser_Enemy
+  - Type: 1
+    Clip: {fileID: 8300000, guid: 8d1772e8a8578084497f6c90bf78c814, type: 3}
+    Name: BackgroundMusic
