@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : Health
 {
-    [SerializeField] private GameObject healthPickUpPrefab;
+    [SerializeField] private GameObject healthPickUpPrefab, laserChargePrefab;
     [SerializeField] private GameObject explosionPrefab;
     [SerializeField] private int scoreForKillingEnemy;
     [SerializeField] private float currentHeat;//up to 1 then die
@@ -46,6 +46,9 @@ public class EnemyHealth : Health
         if(rand > 80)
         {
             Instantiate(healthPickUpPrefab,transform.position,Quaternion.identity);
+        } else if (rand < 20)
+        {
+            Instantiate(laserChargePrefab, transform.position, Quaternion.identity);
         }
     }
 }

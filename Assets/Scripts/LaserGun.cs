@@ -5,9 +5,17 @@ using UnityEngine;
 public class LaserGun : MonoBehaviour
 {
     [SerializeField] private LaserBeam laserBeam;
-      void Update()
+    [SerializeField]
+    private float chargeDrain;
+    private PlayerMove player;
+
+    private void Awake()
+    {
+        player = GetComponentInParent<PlayerMove>();
+    }
+    void Update()
     {       
-        if (Input.GetButton("Fire1")&& !GameManager.Instance.GameFinished)
+        if (Input.GetButton("Fire1")&& !GameManager.Instance.GameFinished&&player.laserCharge>0)
         {
             Shoot();                     
         }
@@ -20,6 +28,7 @@ public class LaserGun : MonoBehaviour
     {
         laserBeam.gameObject.SetActive(true);
         laserBeam.LaserShoot(transform.rotation);
+        player.RemoveCharge(chargeDrain);
     }
     private void StopShoot()
     {
