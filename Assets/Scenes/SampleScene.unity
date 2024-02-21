@@ -3037,10 +3037,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3420c34212b445829b5bed6f531e91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioKey: 
   attacker: 1
   bullet: {fileID: 7834546812266462514, guid: ea65aeb9884f8411191833911e00a4db, type: 3}
   shootPoint: {fileID: 1166241008}
   delayBtwShots: 0.1
+  bulletsToSpawn: 10
   force: 100
 --- !u!61 &1728088372
 BoxCollider2D:
