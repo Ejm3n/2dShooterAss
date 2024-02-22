@@ -49,9 +49,9 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
+            laserBeam.gameObject.SetActive(false);
             LaserGun.enabled = false;
             shotgun.enabled = true;
-            laserBeam.gameObject.SetActive(false);
         }
     }
 
