@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : Health
 {
-    [SerializeField] private GameObject healthPickUpPrefab;
+    [SerializeField] private GameObject healthPickUpPrefab, laserChargePrefab;
     [SerializeField] private GameObject explosionPrefab;
     [SerializeField] private int scoreForKillingEnemy;
     [SerializeField] private float currentHeat;//up to 1 then die
@@ -22,16 +22,16 @@ public class EnemyHealth : Health
     {
         GameObject exp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
        CreateABonusAfterDeath();
-        float dist = Vector2.Distance(transform.position, GameManager.Instance.GetPlayerPos());
-        if (dist<GameManager.Instance.GetMaxDistanceToPlayer())
-        {
-            exp.GetComponent<AudioSource>().volume = 1f - (dist / GameManager.Instance.GetMaxDistanceToPlayer());
-        }
-        else
-        {
-            exp.GetComponent<AudioSource>().volume = 0;
-        }
-       
+        //float dist = Vector2.Distance(transform.position, GameManager.Instance.GetPlayerPos());
+        //if (dist<GameManager.Instance.GetMaxDistanceToPlayer())
+        //{
+        //    exp.GetComponent<AudioSource>().volume = 1f - (dist / GameManager.Instance.GetMaxDistanceToPlayer());
+        //}
+        //else
+        //{
+        //    exp.GetComponent<AudioSource>().volume = 0;
+        //}
+        
         Destroy(exp, 3f);
         Debug.Log("sadhjfghdsagf" + killedBy.ToString());
         if(killedBy == KilledBy.Player)
@@ -46,6 +46,9 @@ public class EnemyHealth : Health
         if(rand > 80)
         {
             Instantiate(healthPickUpPrefab,transform.position,Quaternion.identity);
+        } else if (rand < 20)
+        {
+            Instantiate(laserChargePrefab, transform.position, Quaternion.identity);
         }
     }
 }

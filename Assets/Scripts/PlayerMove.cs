@@ -9,9 +9,17 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float dash;
     [SerializeField] private GameObject particle;
     [SerializeField] private Transform particleEmit;
+
+    private LaserGun LaserGun;
+    private Shotgun shotgun;
+    [SerializeField]
+    private LaserBeam laserBeam;
+    public float laserCharge, maxCharge;
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        LaserGun = GetComponent<LaserGun>();
+        shotgun = gameObject.GetComponent<Shotgun>();
     }
 
 
@@ -19,6 +27,7 @@ public class PlayerMove : MonoBehaviour
     {
         if(!GameManager.Instance.GameFinished)
         {
+            WeaponManager();
             Move();
             RotateTowardsMousePointer();
         }      
@@ -27,6 +36,34 @@ public class PlayerMove : MonoBehaviour
     private void Update()
     {
         Dash();
+    }
+
+    void WeaponManager()
+    {
+        if (laserCharge > maxCharge) laserCharge = maxCharge;
+
+        if (laserCharge > 0)
+        {
+            LaserGun.enabled = true;
+            shotgun.enabled = false;
+        }
+        else
+        {
+            laserBeam.gameObject.SetActive(false);
+            LaserGun.enabled = false;
+            shotgun.enabled = true;
+        }
+    }
+
+    public void AddCharge(float chargeToAdd)
+    {
+        laserCharge += chargeToAdd;
+        UIManager.Instance.UpdateLaserCharge(laserCharge / maxCharge);
+    }
+    public void RemoveCharge(float chargeToSubtract)
+    {
+        laserCharge -= chargeToSubtract;
+        UIManager.Instance.UpdateLaserCharge(laserCharge / maxCharge);
     }
 
     /// <summary>

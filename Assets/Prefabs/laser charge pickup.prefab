@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 374200118243426430}
   - component: {fileID: 1694644686049715135}
   - component: {fileID: 731878280247777952}
-  - component: {fileID: 2556725846000074135}
+  - component: {fileID: 5878692908930368351}
   m_Layer: 0
-  m_Name: health pick up
+  m_Name: laser charge pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1453905688, guid: 650e0ec75f2dd4145a0f3503c3da761b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 1023359717, guid: 650e0ec75f2dd4145a0f3503c3da761b, type: 3}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2556725846000074135
+--- !u!114 &5878692908930368351
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1377209086836615133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a62437fe15340a671848021444a4ecf4, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f9037bac86604c9eb35e43e1d06f440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthToAdd: 1
+  chargeToAdd: 10

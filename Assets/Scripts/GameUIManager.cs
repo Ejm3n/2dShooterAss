@@ -6,7 +6,7 @@ using TMPro;
 public class GameUIManager : UIManager
 {
     [SerializeField] private TMP_Text scoreText;
-    [SerializeField] private Image healthImage;
+    [SerializeField] private Image healthImage, laserImage;
 
     public override void UpdateHealthUI(float fill)
     {
@@ -16,5 +16,9 @@ public class GameUIManager : UIManager
     public override void UpdateScore(int score)
     {
         scoreText.text = "Score: " +score.ToString();
+    }
+    public override void UpdateLaserCharge(float charge)
+    {
+        laserImage.fillAmount = charge;
     }
 }

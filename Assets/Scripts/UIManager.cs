@@ -47,6 +47,10 @@ public class UIManager : MonoBehaviour
     {
 
     }
+    public virtual void UpdateLaserCharge(float charge)
+    {
+
+    }
     public virtual void UpdateScore(int score)
     {
 
