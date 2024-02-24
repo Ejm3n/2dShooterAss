@@ -35,7 +35,7 @@ public class Gun : MonoBehaviour
     {
         if (timeToReload <= 0)
         {
-            SoundManager.Instance.PlaySound(sound);
+            MainController.Instance.SoundManager.PlaySound(sound);
             Bullet newBullet = pool.GetFreeElement();
             newBullet.gameObject.SetActive(true);
             newBullet.transform.position = shootPoint.transform.position;

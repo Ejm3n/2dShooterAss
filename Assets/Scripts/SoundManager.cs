@@ -19,7 +19,7 @@ public class SoundManager : MonoBehaviour
 {
     [Header("Put all sounds and sfx here")]
     [SerializeField] private AudioTrack[] audioTracks;
-    public static SoundManager Instance;
+
     private Dictionary<string, AudioClip> sfxDictionary = new Dictionary<string, AudioClip>();
     private Dictionary<string, AudioClip> musicDictionary = new Dictionary<string, AudioClip>();
 
@@ -29,15 +29,7 @@ public class SoundManager : MonoBehaviour
     private void Awake()
     {
 
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(this);
-        }
-        else
-        {
-            Destroy(this);
-        }
+       
 
         Initialize();
 

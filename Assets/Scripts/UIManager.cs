@@ -5,14 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance;
     [SerializeField] protected GameObject panel; // this can hold both pause and settings panel
 
 
-    protected void Awake() {
-        if(Instance == null)
-            Instance = this;
-    }
+
 
     public void ChangeScene(int sceneNUmber)
     {
@@ -40,7 +36,7 @@ public class UIManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        GameUIManager.Instance.ChangeScene(SceneManager.GetActiveScene().buildIndex);
+        MainController.Instance.UIManager.ChangeScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public virtual void UpdateHealthUI(float fill)

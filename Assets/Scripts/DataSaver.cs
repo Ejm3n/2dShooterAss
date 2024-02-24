@@ -10,7 +10,7 @@ public class DataSaver : MonoBehaviour
         if(Instance == null)
             Instance = this;
         else
-            Destroy(this);
+            Destroy(gameObject);
         DontDestroyOnLoad(this);
     }
     public void SetCurrentScore(int score)

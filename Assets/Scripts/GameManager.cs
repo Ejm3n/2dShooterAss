@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
         //losePanel.SetActive(false);
         GameFinished = false;
-        GameUIManager.Instance.SetTimeScale(1);
+        MainController.Instance.UIManager.SetTimeScale(1);
 
         score = 0;
         AddScore(0);
@@ -32,13 +32,13 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-       GameUIManager.Instance.UpdateHealthUI(1);
+       MainController.Instance.UIManager.UpdateHealthUI(1);
     }
     private void Update() {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            GameUIManager.Instance.SetTimeScale(0f);
-            GameUIManager.Instance.OpenPanel();
+            MainController.Instance.UIManager.SetTimeScale(0f);
+            MainController.Instance.UIManager.OpenPanel();
         }
     }
         #region gameOver    
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
        // bestScoreText.text = "Best score: " + DataSaver.Instance.GetBestScore().ToString();
         Time.timeScale = 0;
         //losePanel.SetActive(true);
-        GameUIManager.Instance.ChangeScene(2);
+        MainController.Instance.UIManager.ChangeScene(2);
     }
     public float GetMaxDistanceToPlayer()
     {
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int scoreToAdd)
     {
         score += scoreToAdd;
-        GameUIManager.Instance.UpdateScore(score);
+        MainController.Instance.UIManager.UpdateScore(score);
     }
 
     #endregion

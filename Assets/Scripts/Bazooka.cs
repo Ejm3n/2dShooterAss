@@ -12,7 +12,7 @@ public class Bazooka : Gun
     private void OnEnable()
     {
         currentBullets = startBullets;
-        UIManager.Instance.UpdateBazookaCharge(currentBullets);
+        MainController.Instance.UIManager.UpdateBazookaCharge(currentBullets);
     }
     protected override void Update()
     {
@@ -24,7 +24,7 @@ public class Bazooka : Gun
                 rb.AddRelativeForce(new Vector2(0, -force));
 
                 currentBullets--;
-                UIManager.Instance.UpdateBazookaCharge(currentBullets);
+                MainController.Instance.UIManager.UpdateBazookaCharge(currentBullets);
                 if (currentBullets <= 0)
                 {
                     GetComponent<PlayerMove>().ChangeGuns(false);

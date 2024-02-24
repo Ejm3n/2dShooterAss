@@ -47,7 +47,7 @@ public class EnemyHealth : Health
         float dist = Vector2.Distance(transform.position, GameManager.Instance.GetPlayerPos());
         if (dist < GameManager.Instance.GetMaxDistanceToPlayer())
         {
-            SoundManager.Instance.PlaySound("Explosion", 1f - (dist / GameManager.Instance.GetMaxDistanceToPlayer()));
+            MainController.Instance.SoundManager.PlaySound("Explosion", 1f - (dist / GameManager.Instance.GetMaxDistanceToPlayer()));
         }
         
     }
