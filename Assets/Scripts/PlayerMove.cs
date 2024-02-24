@@ -4,7 +4,9 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private Camera mainCamera;
-    
+    [SerializeField] private SpriteRenderer playerSprite;
+    [SerializeField] private Sprite shotgunSprite, bazookaSprite;
+
     [SerializeField] private float dash;
     [SerializeField] private GameObject particle;
     [SerializeField] private Transform particleEmit;
@@ -41,11 +43,13 @@ public class PlayerMove : MonoBehaviour
     {
         if (modifiedGun)
         {
+            playerSprite.sprite = bazookaSprite;
             shotgun.enabled = false;
             bazooka.enabled = true;
         }
         else
         {
+            playerSprite.sprite = shotgunSprite;
             bazooka.enabled = false;
             shotgun.enabled = true;
         }

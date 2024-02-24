@@ -72,6 +72,7 @@ public class BazookaBullet : Bullet
     {
         if(collision.CompareTag("Enemy") || collision.CompareTag("Asteroid"))
         {
+            MainController.Instance.SoundManager.PlaySound("Bazooka_Explode");
             Instantiate(explotionPrefab,transform.position,Quaternion.identity);
             gameObject.SetActive(false);
         }
