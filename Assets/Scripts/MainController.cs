@@ -15,6 +15,7 @@ public class MainController : MonoBehaviour
     [SerializeField] private UIManager MainGameUIManager;
     [SerializeField] private UIManager EndSceneUIManager;
 
+    public DataSaver DataSaver;
 
     private void Awake()
     {
@@ -61,7 +62,8 @@ public class MainController : MonoBehaviour
             UIManager = EndSceneUIManager;
             MainMenuUIManager.gameObject.SetActive(false);
             MainGameUIManager.gameObject.SetActive(false);
-            UIManager.SetSliders();
+            
         }
+        UIManager.SetSliders();
     }
 }

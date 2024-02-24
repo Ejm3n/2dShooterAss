@@ -46,9 +46,10 @@ public class SoundManager : MonoBehaviour
         {
             AddSound(track.Name, track.Clip, track.Type);
         }
+        ChangeMusicVolume();
+        ChangeSFXVolume();
         PlayMusic("BackgroundMusic");
-        MainController.Instance.UIManager.sfxSlider.value = 1;
-        MainController.Instance.UIManager.musicSlider.value = .25f;
+       
     }
 
     // Add a sound to the dictionary.
@@ -87,13 +88,14 @@ public class SoundManager : MonoBehaviour
         float vol = MainController.Instance.UIManager.sfxSlider.value;
 
         sfxSource.volume = vol;
-        DataSaver.Instance.SaveSFXVolume(vol);
+        MainController.Instance.DataSaver.SaveSFXVolume(vol);
     }
     public void ChangeMusicVolume()
     {
         float vol = MainController.Instance.UIManager.musicSlider.value;
         musicSource.volume = vol;
-        DataSaver.Instance.SaveSoundVolume(vol);
+        MainController.Instance.DataSaver.SaveSoundVolume(vol);
+        Debug.Log("music = " + MainController.Instance.DataSaver.GetSoundVolume());
     }
     // Play utility.
     private void Play(string soundKey, SoundType soundType)
@@ -121,7 +123,10 @@ public class SoundManager : MonoBehaviour
 
         if (targetDictionary.ContainsKey(soundKey))
         {
-            targetSource.PlayOneShot(targetDictionary[soundKey],volume);
+            if(soundType == SoundType.SOUND_SFX)
+                targetSource.PlayOneShot(targetDictionary[soundKey],volume*sfxSource.volume);
+            else
+                targetSource.PlayOneShot(targetDictionary[soundKey], volume * musicSource.volume);
         }
         else
         {

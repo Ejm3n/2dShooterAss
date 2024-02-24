@@ -8,9 +8,10 @@ public class GameUIManager : UIManager
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private Image healthImage, laserImage;
 
-    private void Start()
+    protected override void Start()
     {
         UpdateBazookaCharge(0);
+        base.Start();
     }
     public override void UpdateHealthUI(float fill)
     {

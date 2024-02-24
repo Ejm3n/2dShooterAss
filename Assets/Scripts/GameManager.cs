@@ -23,22 +23,25 @@ public class GameManager : MonoBehaviour
             Instance = this;
         //losePanel.SetActive(false);
         GameFinished = false;
-        MainController.Instance.UIManager.SetTimeScale(1);
+        
 
         score = 0;
-        AddScore(0);
+        
         playerHealth = FindObjectOfType<PlayerHealth>();
         playerTransform = playerHealth.transform;
     }
     private void Start()
     {
-       MainController.Instance.UIManager.UpdateHealthUI(1);
+        MainController.Instance.UIManager.SetTimeScale(1);
+        MainController.Instance.UIManager.UpdateHealthUI(1);
+        AddScore(0);
     }
     private void Update() {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             MainController.Instance.UIManager.SetTimeScale(0f);
             MainController.Instance.UIManager.OpenPanel();
+           
         }
     }
         #region gameOver    
@@ -46,8 +49,8 @@ public class GameManager : MonoBehaviour
     {
         GameFinished = true;
        // scoreEndText.text = "Your score: " + score.ToString();
-        DataSaver.Instance.SetCurrentScore(score);
-        DataSaver.Instance.SetBestScore(score);
+        MainController.Instance.DataSaver.SetCurrentScore(score);
+        MainController.Instance.DataSaver.SetBestScore(score);
        // bestScoreText.text = "Best score: " + DataSaver.Instance.GetBestScore().ToString();
         Time.timeScale = 0;
         //losePanel.SetActive(true);

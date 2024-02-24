@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class DataSaver : MonoBehaviour
 {
-    public static DataSaver Instance;
     private int currentScore;
-    private void Awake() {
-        if(Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
-        DontDestroyOnLoad(this);
-    }
+
     public void SetCurrentScore(int score)
     {
         currentScore = score;

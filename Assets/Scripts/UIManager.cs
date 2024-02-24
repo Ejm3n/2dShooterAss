@@ -10,8 +10,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] public Slider sfxSlider;
     [SerializeField] public Slider musicSlider;
 
-  
 
+    protected virtual void Start()
+    {
+        panel.SetActive(false);
+    }
     public void ChangeScene(int sceneNUmber)
     {
         SceneManager.LoadScene(sceneNUmber);
@@ -19,8 +22,15 @@ public class UIManager : MonoBehaviour
     }
     public void SetSliders()
     {
-        sfxSlider.value = DataSaver.Instance.GetSFXVolume(); 
-        musicSlider.value = DataSaver.Instance.GetSoundVolume();
+        try
+        {
+            sfxSlider.value = MainController.Instance.DataSaver.GetSFXVolume();
+            musicSlider.value = MainController.Instance.DataSaver.GetSoundVolume();
+        }
+        catch
+        {
+            
+        }
     }
     public void OpenPanel()
     {

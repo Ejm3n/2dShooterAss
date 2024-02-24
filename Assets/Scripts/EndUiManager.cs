@@ -14,10 +14,10 @@ public class EndUiManager : UIManager
     }
     private void SetCurrentScore()
     {
-currentScoreText.text = "Your score: " + DataSaver.Instance.GetCurrentScore().ToString();
+currentScoreText.text = "Your score: " + MainController.Instance.DataSaver.GetCurrentScore().ToString();
     }
     private void SetBestScore()
     {
-        bestScoreText.text = "Best score: " + DataSaver.Instance.GetBestScore().ToString();
+        bestScoreText.text = "Best score: " + MainController.Instance.DataSaver.GetBestScore().ToString();
     }
 }
