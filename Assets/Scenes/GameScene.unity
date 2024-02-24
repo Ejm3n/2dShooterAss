@@ -2721,7 +2721,7 @@ MonoBehaviour:
   delayBtwShots: 1
   bulletsToSpawn: 10
   startBullets: 5
-  force: 100
+  force: 200
 --- !u!1 &1859453716
 GameObject:
   m_ObjectHideFlags: 0
