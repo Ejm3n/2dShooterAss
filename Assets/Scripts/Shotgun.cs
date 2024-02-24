@@ -3,14 +3,14 @@ using UnityEngine;
 public class Shotgun : Gun
 {
     [SerializeField]
-    private float force;
+    protected float force;
     
     protected override void Update()
     {
         base.Update();
         if (Input.GetButtonDown("Fire1")&& !GameManager.Instance.GameFinished)
         {
-           if( Shoot("Laser_Player"))
+           if( Shoot(audioKey))
                 rb.AddRelativeForce(new Vector2(0, -force));
         }
     }

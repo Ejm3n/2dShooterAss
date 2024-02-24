@@ -4,68 +4,56 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private Camera mainCamera;
-    private Rigidbody2D rb;
-    private Vector2 movement;
+    
     [SerializeField] private float dash;
     [SerializeField] private GameObject particle;
     [SerializeField] private Transform particleEmit;
 
-    private LaserGun LaserGun;
+    [SerializeField] public float laserCharge, maxCharge;
+    private Rigidbody2D rb;
+    private Vector2 movement;
     private Shotgun shotgun;
-    [SerializeField]
-    private LaserBeam laserBeam;
-    public float laserCharge, maxCharge;
+     private Bazooka bazooka;
+
+   
+    private Shotgun currentGun;
     private void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        LaserGun = GetComponent<LaserGun>();
-        shotgun = gameObject.GetComponent<Shotgun>();
+        rb = GetComponent<Rigidbody2D>();
+         bazooka = GetComponent<Bazooka>();
+        
+         shotgun = GetComponent<Shotgun>();
     }
 
 
     void FixedUpdate()
     {
-        if(!GameManager.Instance.GameFinished)
+        if (!GameManager.Instance.GameFinished)
         {
-            WeaponManager();
             Move();
             RotateTowardsMousePointer();
-        }      
+        }
     }
 
     private void Update()
     {
         Dash();
     }
-
-    void WeaponManager()
+    public void ChangeGuns(bool modifiedGun)
     {
-        if (laserCharge > maxCharge) laserCharge = maxCharge;
-
-        if (laserCharge > 0)
+        if (modifiedGun)
         {
-            LaserGun.enabled = true;
+            currentGun = bazooka;
             shotgun.enabled = false;
+            bazooka.enabled = true;
         }
         else
         {
-            laserBeam.gameObject.SetActive(false);
-            LaserGun.enabled = false;
+            currentGun = shotgun;
+            bazooka.enabled = false;
             shotgun.enabled = true;
         }
     }
-
-    public void AddCharge(float chargeToAdd)
-    {
-        laserCharge += chargeToAdd;
-        UIManager.Instance.UpdateLaserCharge(laserCharge / maxCharge);
-    }
-    public void RemoveCharge(float chargeToSubtract)
-    {
-        laserCharge -= chargeToSubtract;
-        UIManager.Instance.UpdateLaserCharge(laserCharge / maxCharge);
-    }
-
     /// <summary>
     /// rotating towards mouse
     /// </summary>

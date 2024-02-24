@@ -8,6 +8,10 @@ public class GameUIManager : UIManager
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private Image healthImage, laserImage;
 
+    private void Start()
+    {
+        UpdateBazookaCharge(0);
+    }
     public override void UpdateHealthUI(float fill)
     {
         healthImage.fillAmount = fill;
@@ -17,8 +21,8 @@ public class GameUIManager : UIManager
     {
         scoreText.text = "Score: " +score.ToString();
     }
-    public override void UpdateLaserCharge(float charge)
+    public override void UpdateBazookaCharge(int bazookaBullets)
     {
-        laserImage.fillAmount = charge;
+        laserImage.fillAmount = (float)bazookaBullets/5f; // sorry about this 5f we need to not forget
     }
 }

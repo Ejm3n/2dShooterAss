@@ -47,7 +47,7 @@ public class UIManager : MonoBehaviour
     {
 
     }
-    public virtual void UpdateLaserCharge(float charge)
+    public virtual void UpdateBazookaCharge(int bazookaBullets)
     {
 
     }

@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 374200118243426430}
   - component: {fileID: 1694644686049715135}
   - component: {fileID: 731878280247777952}
-  - component: {fileID: 5878692908930368351}
+  - component: {fileID: 4554903574498630448}
   m_Layer: 0
   m_Name: laser charge pickup
-  m_TagString: Untagged
+  m_TagString: PickUps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5878692908930368351
+--- !u!114 &4554903574498630448
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +140,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1377209086836615133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f9037bac86604c9eb35e43e1d06f440, type: 3}
+  m_Script: {fileID: 11500000, guid: ccfddce33c685554e878c3ed3c7e67d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeToAdd: 10

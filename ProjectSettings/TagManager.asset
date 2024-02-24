@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Asteroid
   - Wall
+  - PickUps
   layers:
   - Default
   - TransparentFX

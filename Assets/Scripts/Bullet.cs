@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour
         StartCoroutine(TimeToDisable());
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.transform.CompareTag("Enemy") || collision.transform.CompareTag("Player"))
         {
