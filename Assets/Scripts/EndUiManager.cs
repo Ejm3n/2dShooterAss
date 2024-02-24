@@ -8,7 +8,7 @@ public class EndUiManager : UIManager
     [SerializeField] private TMP_Text currentScoreText;
     [SerializeField] private TMP_Text bestScoreText;
 
-    private void Start() {
+    protected override void Start() {
         SetCurrentScore();
         SetBestScore();
     }

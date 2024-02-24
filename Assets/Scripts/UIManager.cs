@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
     protected virtual void Start()
     {
         panel.SetActive(false);
+        Debug.Log(MainController.Instance.DataSaver.GetSoundVolume());
+        SetSliders();
     }
     public void ChangeScene(int sceneNUmber)
     {
@@ -29,7 +31,7 @@ public class UIManager : MonoBehaviour
         }
         catch
         {
-            
+            Debug.Log("asd");
         }
     }
     public void OpenPanel()

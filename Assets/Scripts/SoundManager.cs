@@ -29,10 +29,8 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         Initialize();
-    } // Static constructor. Gets called the first time the class is accessed.
+    } 
 
-
-    // Initialize the SoundManager. I just put this functionality here instead of in the static constructor.
     private void Initialize()
     {
         // Create a new GameObject to hold the AudioSource
@@ -46,8 +44,8 @@ public class SoundManager : MonoBehaviour
         {
             AddSound(track.Name, track.Clip, track.Type);
         }
-        ChangeMusicVolume();
-        ChangeSFXVolume();
+        sfxSource.volume = MainController.Instance.DataSaver.GetSFXVolume();
+        musicSource.volume = MainController.Instance.DataSaver.GetSoundVolume();
         PlayMusic("BackgroundMusic");
        
     }
@@ -95,7 +93,8 @@ public class SoundManager : MonoBehaviour
         float vol = MainController.Instance.UIManager.musicSlider.value;
         musicSource.volume = vol;
         MainController.Instance.DataSaver.SaveSoundVolume(vol);
-        Debug.Log("music = " + MainController.Instance.DataSaver.GetSoundVolume());
+       
+        //Debug.Log("music = " + MainController.Instance.DataSaver.GetSoundVolume());
     }
     // Play utility.
     private void Play(string soundKey, SoundType soundType)

@@ -12,6 +12,7 @@ public class GameUIManager : UIManager
     {
         UpdateBazookaCharge(0);
         base.Start();
+
     }
     public override void UpdateHealthUI(float fill)
     {
