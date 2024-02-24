@@ -82,6 +82,10 @@ public class SoundManager : MonoBehaviour
     {
         Play(soundKey, SoundType.SOUND_SFX);
     }
+    public void PlaySound(string soundKey,float volume)
+    {
+        Play(soundKey, SoundType.SOUND_SFX,volume);
+    }
 
     // Play music by key interface.
     public void PlayMusic(string soundKey)
@@ -89,6 +93,7 @@ public class SoundManager : MonoBehaviour
         musicSource.Stop();
         Play(soundKey, SoundType.SOUND_MUSIC);
     }
+    
 
     // Play utility.
     private void Play(string soundKey, SoundType soundType)
@@ -101,6 +106,22 @@ public class SoundManager : MonoBehaviour
         if (targetDictionary.ContainsKey(soundKey))
         {
             targetSource.PlayOneShot(targetDictionary[soundKey]);
+        }
+        else
+        {
+            Debug.LogWarning("Sound key " + soundKey + " not found in the " + soundType + " dictionary.");
+        }
+    }
+    private void Play(string soundKey, SoundType soundType,float volume)
+    {
+        Dictionary<string, AudioClip> targetDictionary;
+        AudioSource targetSource;
+
+        SetTargetsByType(soundType, out targetDictionary, out targetSource);
+
+        if (targetDictionary.ContainsKey(soundKey))
+        {
+            targetSource.PlayOneShot(targetDictionary[soundKey],volume);
         }
         else
         {

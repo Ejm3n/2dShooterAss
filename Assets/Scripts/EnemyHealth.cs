@@ -22,16 +22,7 @@ public class EnemyHealth : Health
     {
         GameObject exp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
        CreateABonusAfterDeath();
-        //float dist = Vector2.Distance(transform.position, GameManager.Instance.GetPlayerPos());
-        //if (dist<GameManager.Instance.GetMaxDistanceToPlayer())
-        //{
-        //    exp.GetComponent<AudioSource>().volume = 1f - (dist / GameManager.Instance.GetMaxDistanceToPlayer());
-        //}
-        //else
-        //{
-        //    exp.GetComponent<AudioSource>().volume = 0;
-        //}
-        
+        PlayDeathSound();
         Destroy(exp, 3f);
         Debug.Log("sadhjfghdsagf" + killedBy.ToString());
         if(killedBy == KilledBy.Player)
@@ -50,5 +41,14 @@ public class EnemyHealth : Health
         {
             Instantiate(laserChargePrefab, transform.position, Quaternion.identity);
         }
+    }
+    void PlayDeathSound()
+    {
+        float dist = Vector2.Distance(transform.position, GameManager.Instance.GetPlayerPos());
+        if (dist < GameManager.Instance.GetMaxDistanceToPlayer())
+        {
+            SoundManager.Instance.PlaySound("Explosion", 1f - (dist / GameManager.Instance.GetMaxDistanceToPlayer()));
+        }
+        
     }
 }

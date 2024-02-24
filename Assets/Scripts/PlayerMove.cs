@@ -15,8 +15,6 @@ public class PlayerMove : MonoBehaviour
     private Shotgun shotgun;
      private Bazooka bazooka;
 
-   
-    private Shotgun currentGun;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,13 +41,11 @@ public class PlayerMove : MonoBehaviour
     {
         if (modifiedGun)
         {
-            currentGun = bazooka;
             shotgun.enabled = false;
             bazooka.enabled = true;
         }
         else
         {
-            currentGun = shotgun;
             bazooka.enabled = false;
             shotgun.enabled = true;
         }

@@ -11,7 +11,7 @@ public class Gun : MonoBehaviour
     [SerializeField] protected GameObject shootPoint;
     [SerializeField] protected float delayBtwShots = 1f;
         [SerializeField] protected int bulletsToSpawn = 10;
-    private float timeToReload;
+    protected float timeToReload;
     protected ObjectPool<Bullet> pool;
 
     protected void Awake()

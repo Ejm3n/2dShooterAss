@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8578495573114710095}
   - component: {fileID: -6509326593878859146}
   m_Layer: 7
-  m_Name: Explotion
+  m_Name: BazookaExplotion
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
