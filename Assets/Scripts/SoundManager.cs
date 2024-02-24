@@ -26,14 +26,9 @@ public class SoundManager : MonoBehaviour
     private AudioSource sfxSource;
     private AudioSource musicSource;
 
-    private void Awake()
+    private void Start()
     {
-
-       
-
         Initialize();
-
-
     } // Static constructor. Gets called the first time the class is accessed.
 
 
@@ -42,16 +37,18 @@ public class SoundManager : MonoBehaviour
     {
         // Create a new GameObject to hold the AudioSource
         sfxSource = gameObject.AddComponent<AudioSource>();
-        sfxSource.volume = 1.0f;
+
 
         musicSource = gameObject.AddComponent<AudioSource>();
-        musicSource.volume = 0.25f;
+
         musicSource.loop = true;
         foreach (AudioTrack track in audioTracks)
         {
             AddSound(track.Name, track.Clip, track.Type);
         }
         PlayMusic("BackgroundMusic");
+        MainController.Instance.UIManager.sfxSlider.value = 1;
+        MainController.Instance.UIManager.musicSlider.value = .25f;
     }
 
     // Add a sound to the dictionary.
@@ -85,8 +82,19 @@ public class SoundManager : MonoBehaviour
         musicSource.Stop();
         Play(soundKey, SoundType.SOUND_MUSIC);
     }
-    
+    public void ChangeSFXVolume()
+    {
+        float vol = MainController.Instance.UIManager.sfxSlider.value;
 
+        sfxSource.volume = vol;
+        DataSaver.Instance.SaveSFXVolume(vol);
+    }
+    public void ChangeMusicVolume()
+    {
+        float vol = MainController.Instance.UIManager.musicSlider.value;
+        musicSource.volume = vol;
+        DataSaver.Instance.SaveSoundVolume(vol);
+    }
     // Play utility.
     private void Play(string soundKey, SoundType soundType)
     {

@@ -60,8 +60,8 @@ public class MainController : MonoBehaviour
             EndSceneUIManager.gameObject.SetActive(true);
             UIManager = EndSceneUIManager;
             MainMenuUIManager.gameObject.SetActive(false);
-            MainGameUIManager.gameObject.SetActive(false);       
+            MainGameUIManager.gameObject.SetActive(false);
+            UIManager.SetSliders();
         }
-           
     }
 }

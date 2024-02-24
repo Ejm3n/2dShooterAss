@@ -32,4 +32,21 @@ if (score > PlayerPrefs.GetInt("Best score"))
     {
         return PlayerPrefs.GetInt("Best score");
     }
+    public void SaveSoundVolume(float vol)
+    {
+        PlayerPrefs.SetFloat("Sound", vol);
+    }
+    public float GetSoundVolume()
+    {
+       return  PlayerPrefs.GetFloat("Sound", .25f);
+    }
+
+    public void SaveSFXVolume(float vol)
+    {
+        PlayerPrefs.SetFloat("SFX", vol);
+    }
+    public float GetSFXVolume()
+    {
+       return PlayerPrefs.GetFloat("SFX", 1);
+    }
 }
