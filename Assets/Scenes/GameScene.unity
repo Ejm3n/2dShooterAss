@@ -2578,7 +2578,6 @@ GameObject:
   - component: {fileID: 1728088373}
   - component: {fileID: 1728088371}
   - component: {fileID: 1728088380}
-  - component: {fileID: 1728088375}
   - component: {fileID: 1728088377}
   m_Layer: 3
   m_Name: Player
@@ -2717,26 +2716,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1728088375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1728088369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2977ff2e1b5c84b47bf5a50961e9be9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grapplable:
-    serializedVersion: 2
-    m_Bits: 257
-  maxDist: 5.8
-  grappleSpeed: 5
-  grappleShootSpeed: 20
-  grappled: 0
-  retracting: 0
 --- !u!114 &1728088377
 MonoBehaviour:
   m_ObjectHideFlags: 0
