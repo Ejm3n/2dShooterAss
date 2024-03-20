@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+
+    [SerializeField] private Joystick moveJoystick;
     [SerializeField] private float moveSpeed;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private SpriteRenderer playerSprite;
@@ -37,8 +39,13 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        Dash();
+        Debug.Log(Input.GetAxis("Horizontal"));
+        if (Input.GetButtonDown("Jump"))
+        {
+            Dash();
+        }
     }
+
     public void ChangeGuns(bool modifiedGun)
     {
         if (modifiedGun)
@@ -67,8 +74,8 @@ public class PlayerMove : MonoBehaviour
     }
     private void Move()
     {
-        movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxis("Vertical"));
-
+        //movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxis("Vertical"));
+        movement = new Vector2(moveJoystick.Horizontal,moveJoystick.Vertical);
         if (movement.magnitude > 1)
             movement = movement.normalized;
 
@@ -76,12 +83,11 @@ public class PlayerMove : MonoBehaviour
     }
     private void Dash()
     {
-        if (Input.GetButtonDown("Jump"))
-        {
+        
             rb.AddRelativeForce(new Vector2(0, dash));
             GameObject part = Instantiate(particle, particleEmit);
             Destroy(part, 1f);
-        }
+        
     }
 }
 
